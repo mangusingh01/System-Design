@@ -1,9 +1,10 @@
+import Encapsulation.BankAccount.BankAccount;
 import Encapsulation.TempratureSensor.TemperatureSensor;
 import Encapsulation.UserAccount.UserAccount;
 
 public static void main(String[] args) {
 
-    System.out.println("TemperatureSensor.........");
+    System.out.println("#################  TemperatureSensor   ################# ");
 
     TemperatureSensor tempratureSensor1 = new TemperatureSensor(-400);
 
@@ -12,7 +13,7 @@ public static void main(String[] args) {
     System.out.println(tempratureSensor2.getTemperature());
     System.out.println(tempratureSensor2.getFahrenheit());
 
-    System.out.println("User Account ..........");
+    System.out.println("################# User Account ################# ");
 
     UserAccount userAccount1 = new UserAccount("failedAttempt", "password");
 
@@ -25,5 +26,17 @@ public static void main(String[] args) {
     System.out.println(userAccount2.checkPassword("wrongPassword"));
     System.out.println(userAccount2.checkPassword("wrongPassword"));
 
+    System.out.println("################# Bank Account ################# ");
 
+    BankAccount bankAccount = new BankAccount("Mangu", 1000);
+
+    bankAccount.withdraw(1000);
+    bankAccount.deposit(11000);
+    bankAccount.withdraw(9000);
+
+    System.out.println(bankAccount.getBalance());
+    System.out.println(bankAccount.getHistory());
+
+    bankAccount.freeze();
+    bankAccount.deposit(11000);
 }

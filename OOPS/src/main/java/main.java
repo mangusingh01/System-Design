@@ -3,6 +3,7 @@ import Encapsulation.TempratureSensor.TemperatureSensor;
 import Encapsulation.UserAccount.UserAccount;
 
 public static void main(String[] args) {
+    System.out.println("Starting with Encapsulation practice.....");
 
     System.out.println("#################  TemperatureSensor   ################# ");
 
@@ -39,4 +40,8 @@ public static void main(String[] args) {
 
     bankAccount.freeze();
     bankAccount.deposit(11000);
+
+
+    System.out.println("Starting with Abstraction practice.....");
+
 }

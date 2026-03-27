@@ -1,3 +1,7 @@
+import Abstraction.DataExporter.ExportPipeline;
+import Abstraction.DataExporter.Impl.JSONFormatter;
+import Abstraction.DataExporter.Impl.MockDBSource;
+import Abstraction.DataExporter.Impl.StdoutWriter;
 import Encapsulation.BankAccount.BankAccount;
 import Encapsulation.TempratureSensor.TemperatureSensor;
 import Encapsulation.UserAccount.UserAccount;
@@ -43,5 +47,9 @@ public static void main(String[] args) {
 
 
     System.out.println("Starting with Abstraction practice.....");
+
+    System.out.println("################# Data Exporter ################# ");
+
+    new ExportPipeline(new MockDBSource(), new JSONFormatter(), new StdoutWriter()).run();
 
 }

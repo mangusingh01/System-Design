@@ -8,6 +8,10 @@ import Encapsulation.UserAccount.UserAccount;
 import Inheritance.StaffRoles.EmployeeRole;
 import Inheritance.StaffRoles.ManagerRole;
 import Inheritance.StaffRoles.Person;
+import Polymorphism.OverloadingCompileTime.ReportFormatter;
+
+import java.util.List;
+import java.util.Map;
 
 public static void main(String[] args) {
     System.out.println("Starting with Encapsulation practice.....");
@@ -64,4 +68,14 @@ public static void main(String[] args) {
             .addRole(new ManagerRole(6));
 
     System.out.println(mangu.describe());
+
+    System.out.println("Starting with Polymorphism practice.....");
+    System.out.println("################# Overloading - Report Generator ################# ");
+    ReportFormatter fmt = new ReportFormatter();
+
+    // Compiler resolves each call at compile time — no runtime cost
+    System.out.println(fmt.format("Order #1042"));
+    System.out.println(fmt.format(List.of("Alice", "Bob", "Priya")));
+    System.out.println(fmt.format(Map.of("Status", "Shipped", "ETA", "2 days")));
+    System.out.println(fmt.format("Team", List.of("Alice", "Bob")));
 }

@@ -5,6 +5,9 @@ import Abstraction.DataExporter.Impl.StdoutWriter;
 import Encapsulation.BankAccount.BankAccount;
 import Encapsulation.TempratureSensor.TemperatureSensor;
 import Encapsulation.UserAccount.UserAccount;
+import Inheritance.StaffRoles.EmployeeRole;
+import Inheritance.StaffRoles.ManagerRole;
+import Inheritance.StaffRoles.Person;
 
 public static void main(String[] args) {
     System.out.println("Starting with Encapsulation practice.....");
@@ -52,4 +55,13 @@ public static void main(String[] args) {
 
     new ExportPipeline(new MockDBSource(), new JSONFormatter(), new StdoutWriter()).run();
 
+    System.out.println("Starting with Inheritance practice.....");
+    System.out.println("################# Employee - Person ################# ");
+
+    // Part-time employee who is also a manager — one Person, two roles
+    Person mangu = new Person("Mangu Singh")
+            .addRole(new EmployeeRole(120000, true))
+            .addRole(new ManagerRole(6));
+
+    System.out.println(mangu.describe());
 }

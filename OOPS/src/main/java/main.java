@@ -9,6 +9,10 @@ import Inheritance.StaffRoles.EmployeeRole;
 import Inheritance.StaffRoles.ManagerRole;
 import Inheritance.StaffRoles.Person;
 import Polymorphism.OverloadingCompileTime.ReportFormatter;
+import Polymorphism.OverridingRuntime.Document;
+import Polymorphism.OverridingRuntime.DocumentRenderer;
+import Polymorphism.OverridingRuntime.HTMLDocument;
+import Polymorphism.OverridingRuntime.PDFDocument;
 
 import java.util.List;
 import java.util.Map;
@@ -78,4 +82,11 @@ public static void main(String[] args) {
     System.out.println(fmt.format(List.of("Alice", "Bob", "Priya")));
     System.out.println(fmt.format(Map.of("Status", "Shipped", "ETA", "2 days")));
     System.out.println(fmt.format("Team", List.of("Alice", "Bob")));
+
+    System.out.println("################# Overriding - Document Renderer ################# ");
+    List<Document> docs = List.of(
+            new PDFDocument("Annual Report", "Finance"),
+            new HTMLDocument("Product Page", "Marketing")
+    );
+    new DocumentRenderer().renderAll(docs);
 }

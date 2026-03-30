@@ -2,6 +2,9 @@ import Abstraction.DataExporter.ExportPipeline;
 import Abstraction.DataExporter.Impl.JSONFormatter;
 import Abstraction.DataExporter.Impl.MockDBSource;
 import Abstraction.DataExporter.Impl.StdoutWriter;
+import Abstraction.NotificationService.EmailNotifier;
+import Abstraction.NotificationService.Notifier;
+import Abstraction.NotificationService.SMSNotifier;
 import Encapsulation.BankAccount.BankAccount;
 import Encapsulation.TempratureSensor.TemperatureSensor;
 import Encapsulation.UserAccount.UserAccount;
@@ -62,6 +65,17 @@ public static void main(String[] args) {
     System.out.println("################# Data Exporter ################# ");
 
     new ExportPipeline(new MockDBSource(), new JSONFormatter(), new StdoutWriter()).run();
+
+    System.out.println("################# Notifier ################# ");
+
+    Notifier smsNotifier = new SMSNotifier();
+    Notifier emailNotifier = new EmailNotifier();
+
+    System.out.println(smsNotifier.getChannelName());
+    smsNotifier.notify("Mangu singh", "sampleMessage");
+    System.out.println(emailNotifier.getChannelName());
+    emailNotifier.notify("Mangu singh", "sampleMessage");
+
 
     System.out.println("Starting with Inheritance practice.....");
     System.out.println("################# Employee - Person ################# ");

@@ -16,8 +16,8 @@ public abstract class Notifier {
         }
     }
 
-    private final NotificationReceipt notify(String recipient, String msg){
-        validate (recipient, msg);;
+    public final NotificationReceipt notify(String recipient, String msg){
+        validate (recipient, msg);
         boolean success = send(recipient, msg);
         return new NotificationReceipt(getChannelName(), recipient, success);
     }

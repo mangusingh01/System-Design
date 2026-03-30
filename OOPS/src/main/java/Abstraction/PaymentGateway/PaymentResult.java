@@ -18,4 +18,8 @@ public class PaymentResult {
     public String getMessage(){
         return this.message;
     }
+
+    public void getDescription() {
+        System.out.println( STR."status: \{this.status}, transactionId: \{this.transactionId}, message: \{this.message}");
+    }
 }

@@ -5,6 +5,9 @@ import Abstraction.DataExporter.Impl.StdoutWriter;
 import Abstraction.NotificationService.EmailNotifier;
 import Abstraction.NotificationService.Notifier;
 import Abstraction.NotificationService.SMSNotifier;
+import Abstraction.PaymentGateway.CheckoutService;
+import Abstraction.PaymentGateway.Impl.MockGateway;
+import Abstraction.PaymentGateway.Impl.StripeGateway;
 import Encapsulation.BankAccount.BankAccount;
 import Encapsulation.TempratureSensor.TemperatureSensor;
 import Encapsulation.UserAccount.UserAccount;
@@ -76,6 +79,12 @@ public static void main(String[] args) {
     System.out.println(emailNotifier.getChannelName());
     emailNotifier.notify("Mangu singh", "sampleMessage");
 
+    System.out.println("################# Payment Service ################# ");
+    CheckoutService checkoutService1 = new CheckoutService(new MockGateway());
+    CheckoutService checkoutService2 = new CheckoutService(new StripeGateway());
+
+    checkoutService1.checkout(300, "USD").getDescription();
+    checkoutService2.checkout(500, "INR").getDescription();
 
     System.out.println("Starting with Inheritance practice.....");
     System.out.println("################# Employee - Person ################# ");

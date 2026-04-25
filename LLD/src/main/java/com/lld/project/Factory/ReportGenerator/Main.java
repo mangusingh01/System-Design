@@ -1,6 +1,6 @@
 package com.lld.project.Factory.ReportGenerator;
 
-public class TheMainClass {
+public class Main {
     public static void main(String[] args) {
         // Client works only with the abstract Creator — DIP satisfied
         ReportCreator creator = getCreator("PDF");
@@ -10,7 +10,6 @@ public class TheMainClass {
         creator.generate();
     }
 
-    // Factory selection lives here — the one place that knows concrete types
     private static ReportCreator getCreator(String format) {
         return switch (format) {
             case "PDF"   -> new PdfReportCreator();
